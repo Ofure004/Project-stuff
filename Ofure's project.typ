@@ -7,7 +7,7 @@
   dedication: [I dedicate this project to God, without whom none of this would have been possible. I also dedicate this work to my supervisor who has been there to help me whenever I needed it, and to my friends and family as well, for the support.],
 
   acknowledgements: [My most profound gratitude goes to Almighty God, who has kept me and sustained me right from the very start of my degree up until this point. To Him be all the glory.
-  
+
   \
 
   I am extremely grateful to my parents, Mr and Dr Ehiremhen for their sacrifices, contributions, and prayers towards the completion of this degree. I also want to appreciate my amazing siblings, for their pieces of advice, support and encouragements during the course of this project and degree. I am extremely privileged to have them in my life.
@@ -66,7 +66,7 @@ The aim of this study is to develop an intelligent software tool to solve the Nu
 
 + To implement two selected ACO hyper-heuristic schemes.
 
-+ To develop an intelligent software tool for nurse scheduling using the selected ACO hyper-heuristic schemes(put GUI stuff).
++ To develop an intelligent software tool for nurse scheduling using the selected ACO hyper-heuristic schemes.
 
 + To test run the ACO hyper-heuristic schemes on the NRP instances.
 
@@ -74,9 +74,7 @@ The aim of this study is to develop an intelligent software tool to solve the Nu
 
 + To compare the most suitable ACO scheme gotten from the previous evaluation with other existing heuristic schemes in literature.
 
-
 \
-
 == Methodology
 
 \
@@ -86,7 +84,7 @@ The tools and techniques I intend on adopting to achieve the above objectives in
 
 + To achieve objective 2, implementing the selected ACO hyper-heuristic schemes in the Java language.
 
-+ To achieve objective 3, developing the software tool on the Hyper Heuristic Flexible Framework(HyFlex).
++ To achieve objective 3, developing the software tool on the Hyper Heuristic Flexible Framework(HyFlex) and using swing GUI for the interface.
 
 + To achieve objective 4, implementing the developed tool in a simulated environment and obtaining the objective function values of the hyper-heuristic schemes on the NRP instances.
 
@@ -117,7 +115,7 @@ The tools and techniques I intend on adopting to achieve the above objectives in
     Development of an intelligent software tool for solving the nurse rostering problem using the selected and implemented ACO hyper-heuristic schemes
   ],
   [*Software Development*\
-    developing the software tool on the Hyper Heuristic Flexible Framework(HyFlex), using .
+    developing the software tool on the Hyper Heuristic Flexible Framework(HyFlex), using the JAVA swing UI for the interface.
   ],
   $4$,
   [Test-run the ACO hyper-heuristic schemes on the Nurse Rostering Problem instances.],
@@ -148,7 +146,7 @@ The tools and techniques I intend on adopting to achieve the above objectives in
 \
 The significance of this study lies in its potential to revolutionize nurse scheduling practices within hospital management, offering substantial benefits to healthcare institutions, nursing staff, and ultimately, the quality of patient care. The study is important for the following reasons:
 
-+ The study is important in the sense that it will contribute to the advancement of knowledg, and help to bridge the knowledge gap  in the field by comparing the performance of two ACO hyper-heuristic schemes inorder to prove which one provides a more optimal schedule, since existing works in the field have primarily focused on traditional scheduling methods or single heuristic or optimization techniques.
++ The study is important in the sense that it will contribute to the advancement of knowledge, and help to bridge the knowledge gap  in the field by comparing the performance of two ACO hyper-heuristic schemes inorder to prove which one provides a more optimal schedule, since existing works in the field have primarily focused on traditional scheduling methods or single heuristic or optimization techniques.
 
 + Healthcare managers and decision-makers stand to benefit from the study's recommendations and guidelines for implementing the intelligent software tool. The insights gained from the research can inform strategic decision-making on the applicability of advanced scheduling technologies like ACO hyper-heuristic schemes in solving the nurse rostering problem.
 
@@ -456,7 +454,7 @@ OYELEYE et al. (2020) developed a modified Genetic Algorithm based upon the stan
 
 \
  
-Moreover, Amindoust, Asadpour, and Shirmohammadi (2021) proposed a hybrid genetic algo model for the NRP, taking the fatigue of nurses int o consideration and providing a 3-shift schedule based on it. They used a real case study,  real case study, a department in one of the hospitals in Esfahan, Iran, where COVID-19 patients were hospitalized to validate the efficiency of the proposed model. The model was able to significantly reduce the time it took to generate schedules, and distribute the nurses within different shifts fairly, considering the least fatigue. 
+Moreover, Amindoust, Asadpour, and Shirmohammadi (2021) proposed a hybrid genetic algo model for the NRP, taking the fatigue of nurses into consideration and providing a 3-shift schedule based on it. They used a real case study,  real case study, a department in one of the hospitals in Esfahan, Iran, where COVID-19 patients were hospitalized to validate the efficiency of the proposed model. The model was able to significantly reduce the time it took to generate schedules, and distribute the nurses within different shifts fairly, considering the least fatigue. 
 
 \
   
