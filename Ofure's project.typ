@@ -1,4 +1,4 @@
-#import "template/bach.typ": bach, table-figure
+#import "template/bach.typ": bach, table-figure, code-figure
 
 #show: content => bach(
   title: "Intelligent Software Tool for Scheduling Nurses in Hospitals: A comparative study of two Ant Colony Optimisation Hyper-heuristic schemes",
@@ -234,7 +234,7 @@ It is the end product of an attempt to solve the Nurse Rostering Problem. Roster
 === Hyper-Heuristics
 \
 
-According to Cowling et. al(2001), hyperheuristics can be defined as an approach that operates at a higher level of abstraction than metaheuristics and manages the choice of which low-level heuristic method should be applied at any given time, depending upon the characteristics of the region of the solution space currently under exploration. The implementation of hyperheuristics search within a search space of heuristics as opposed to heuristics and meta heuristics that search within a search space of problem solutions. They are, as one can say, a "heuristic which chooses heuristics"(Soubeiga, 2003).
+According to Cowling et. al(2001), Hyper-Heuristics can be defined as an approach that operates at a higher level of abstraction than metaheuristics and manages the choice of which low-level heuristic method should be applied at any given time, depending upon the characteristics of the region of the solution space currently under exploration. The implementation of Hyper-Heuristics search within a search space of heuristics as opposed to heuristics and Meta- Heuristics that search within a search space of problem solutions. They are, as one can say, a "heuristic which chooses heuristics"(Soubeiga, 2003).
 
 \
 They aim at solving hard computational search by working on a set of heuristics to automate the process of selecting, combining, generating or adapting several simpler heuristics (or components of such heuristics). When using hyperheuristics, we are attempting to find the right method or sequence of heuristics in a given situation rather than trying to solve a problem directly. Instead, it selects at each step of the solution process the most promising simple low-level heuristic (or combination of heuristics) which is potentially able to improve the solution. On the other hand, if there is no improvement, i.e., a locally optimal solution is found, the hyperheuristic diversifies the search to another area of the solution space by selecting appropriate heuristics from the given set (Chakhlevitch & Cowling, 2008). Hyperheuristics aim at reducing the amount of domain knowledge in the search methodology, such that they can function without the need for in-depth understanding of specific low-level heuristics or the intricate workings of the problem's objective function, except for the outcome it produces. Their emphasis is on grasping the direction of the optimization process (maximization or minimization) and evaluating the values of one or more objective functions.(Chakhlevitch & Cowling, 2008).
@@ -243,16 +243,16 @@ They aim at solving hard computational search by working on a set of heuristics 
 
 === Meta-Heuristics
 \
-Almufti et al.(2023) defined metaheuristics as a higher level of heuristics that function as "master strategies that direct and modify other heuristics to produce solutions beyond those that are typically generated in a quest for local optimality". They attempt to find the best solution out of all possible solutions of an optimization problem.
+Almufti et al.(2023) defined Meta-Heuristics as a higher level of heuristics that function as "master strategies that direct and modify other heuristics to produce solutions beyond those that are typically generated in a quest for local optimality". They attempt to find the best solution out of all possible solutions of an optimization problem.
 
 \
-Metaheuristics can often find good solutions with less computational effort than optimization algorithms, iterative methods, or simple heuristics (Blum & Roli, 2003). They are especially used for solving sophisticated optimization problems like NP-Hard problems. Metaheuristics don't make sure that the optimal solution for a problem is given, they conduct a partial search on the solution space, and the evaluation of the results is based on a set of defined variables or an objective function. They may frequently identify good solutions in combinatorial optimization with less computing work than optimization algorithms, iterative techniques, or basic heuristics since they search through a vast range of viable alternatives. Because of this, they are effective strategies for solving optimization issue (Sadeeq etal., 2021). They are classified into three; Local Search Metaheuristics(Simulated Annealing, Tabu Search, Viable Neighbourhood search), Constructive Metaheuristics (Ant Colony Optimization, Large Neighbourhood search) and Population Based Metaheuristic(Evolutionary Algorithms).
+Meta-heuristics can often find good solutions with less computational effort than optimization algorithms, iterative methods, or simple heuristics (Blum & Roli, 2003). They are especially used for solving sophisticated optimization problems like NP-Hard problems. Metaheuristics don't make sure that the optimal solution for a problem is given, they conduct a partial search on the solution space, and the evaluation of the results is based on a set of defined variables or an objective function. They may frequently identify good solutions in combinatorial optimization with less computing work than optimization algorithms, iterative techniques, or basic heuristics since they search through a vast range of viable alternatives. Because of this, they are effective strategies for solving optimization issue (Sadeeq etal., 2021). They are classified into three; Local Search Meta-heuristics(Simulated Annealing, Tabu Search, Viable Neighbourhood search), Constructive Meta-heuristics (Ant Colony Optimization, Large Neighbourhood search) and Population Based Meta-heuristic(Evolutionary Algorithms).
 
 \
 === Ant Colony Optimization
 \
 
-First proposed by Dorigo(1992), the Ant Colony Optimization algorithm is an umbrella term for a set of related constructive metaheuristics that imitate the foraging patterns of ants to generate solutions. Artificial ants are used to find optimal solutions to optimization problems. The algorithm is based on how real ants could manage to establish shortest path routes from their colony to feeding sources and back(Dorigo, Maniezzo, & Colorni, 1996). The domain of application of ACO algorithms is vast. In principle, ACO can be applied to any discrete optimization problem for which some solution construction mechanism can be conceived(Dorigo & Stützle, 2010).
+First proposed by Dorigo(1992), the Ant Colony Optimization algorithm is an umbrella term for a set of related constructive Meta-Heuristics that imitate the foraging patterns of ants to generate solutions. Artificial ants are used to find optimal solutions to optimization problems. The algorithm is based on how real ants could manage to establish shortest path routes from their colony to feeding sources and back(Dorigo, Maniezzo, & Colorni, 1996). The domain of application of ACO algorithms is vast. In principle, ACO can be applied to any discrete optimization problem for which some solution construction mechanism can be conceived(Dorigo & Stützle, 2010).
 
 
 The Ant Colony Algorithm is a pheromone-based algorithm. This means, it is based upon real ants laying down pheromones to lead other ants to the nearest food source, the shorter the path is, the stronger the intensity of the phermone trail, and the more attractive the trail becomes, hence, the shorter and more optimal the path is. The process is characterized by a positive feedback loop, where the probability with which an ant chooses a path increases with the number of ants that previously chose the same path (Dorigo, Maniezzo, & Colorni, 1996). 
@@ -290,6 +290,35 @@ which belong to the best ant tour
 \
 This is the first ACO algorithm to be proposed by Dorigo(1996). It is the foundational algorithm within the ACO family. It is the one upon which other variations of ACOs are built upon. It embodies the core principles of ACO like the artificial ants, which are based upon real ants, that explore the solution space of the optimization problem; pheromone trails, which lead the ants towards the more promising paths and helps determine which path is the shortest and more optimal route; stochastic or probablity-based decisions, which are influenced by pheromones and other factors, and the updating of these phermone trails based on the performance of all the ants that complete the tour. Although ant system was useful for discovering good or
 optimal solutions for small TSP’s (up to 30 cities), the time required to find such results made it infeasible for larger problems(Dorigo and Gambardella,1997), this is why improvement on this algorithm was necessary, which gave rise to the variations of ACOs we have today.
+
+\
+
+#par([
+  === HYFLEX 
+  \
+  HyFlex, short for Hyper heuristics Flexible Framework, is a JAVA oriented framework for the implementation and comparison of different iterative general-purpose heuristic search algorithms, like Hyper-Heuristics. It features a common software interface for dealing with different combinatorial optimisation problems and provides the algorithm components that are problem specific (4). It provides six hard combinatorial problem domain modules, fully implemented, which include; maximum satisfiability, one dimensional bin packing, permutation flow shop,personnel scheduling, traveling salesman and vehicle routing. The framework allows algorithm designers and implementers to focus on creating practical, general-purpose optimization algorithms without needing in-depth knowledge of the specific problem domains. Researchers in combinatorial optimization often face limitations due to the scarcity of problem domains for testing their adaptive methods. This limitation arises from the significant effort required to implement advanced software components—such as problem models, solution representations, objective function evaluations, and search operators—for various combinatorial optimization problems. The goal of this approach is to enable a hyper-heuristic algorithm, once developed, to be applied to new problems simply by substituting the set of low-level heuristics and the evaluation function.
+
+  \
+  At the highest level, this framework contains two abstract classes, which are the Problem Domain and the Hyper-Heuristic.\
+  An implementation of the Problem Domain class provides: 
+  + A user-configurable memory or a population of solutions that can be managed by the hyper-heuristic through one or more methods.
+  + A routine to randomly initialise solutions, #emph[initializeSolution(i)], where #emph[i] is the index of the solution array in the memory.
+  + A set of problem-specific heuristics that are used to modify solutions. They are called by the #emph[applyHeuristics(i,j,k)] method; where i is the index of the heuristic to call, j is the index of the solution in memory to modify and k is the index in memory where the resulting solution should be placed. There are four groups that each problem-specific heuristic in each problem domain can be classified under, and these are:
+    - Mutational Heuristics: These heuristics perform modifications to a solution by making changes to its components, like a swap, change, removal or an addition. Examples: Swap Mutation, Gaussian Mutation, Insertion Mutation
+
+    - Ruin-recreate Heuristics: These heuristics involve partially "ruining" or destroying a solution and then "recreating" or repairing it to explore new regions of the solution space and potentially find better solutions. They can be broken down into two phases: the ruin phase and the recreate phase. They are, however, considered as large neighbourhood structures and incorporate problem-soecific construction heuristics to rebuild the solutions.
+
+    - Local Search Heuristics: These heuristics are optimization techniques that are used to iteratively improve a solution by making small, local changes. They are commonly applied to combinatorial optimization problems where the goal is to find the best solution from a finite set of possible solutions. hey incorporate an iterative improve-ment process and they guarantee that a non-deteriorating solution will be produced.
+
+    - Crossover Heuristics: These heuristics combine the genetic information of two or more parent solutions to produce new offspring solutions. The goal is to combine beneficial traits from different parents to explore new areas of the solution space and potentially create better solutions. 
+
+  + A varied set of instances that can be loaded using the #emph[load instance] method.
+  + A fitness function.
+  \
+
+  The HyFlex framework, renowned for its role in the Cross-domain Heuristic Search Challenge (CHeSC) 2011, stands as a standard benchmark for evaluating cross-domain hyper-heuristics. Offering a common interface for implementing and comparing hyper-heuristics across diverse problem domains, it simplifies the implementation of ant colony hyper-heuristic schemes by abstracting low-level heuristics and providing a standardized performance metric. With its established reputation in the research community, using HyFlex for the implementation of my ant colony schemes ensures efficient development and evaluation.
+
+])
 
 \
 
@@ -468,6 +497,56 @@ A comprehensive review of the literature reveals a surprising lack of recent and
 
 #pagebreak()
 
+= System analysis and design
+
+== Preamble
+
+This section details the analysis and design of the proposed system. It presents the requirements for the system, the techniques taken to achieve the system as well as diagrams to model the proposed system.
+
+\
+== The proposed system
+
+The proposed system is an intelligent tool that makes use of two HyperHeuristic schemes each utilizing two different variations of the Ant Colony optimization algorithm. This tool will, after a number of iterations, each generate possible solutions in the form of rosters for the Nurse Scheduling or Rostering problem. The main aim for this tool is the comparison of the implementation two Ant Colony HyperHeuristic schemes, so there will be little to no user involvement with this system.
+
+\
+
+== The Nurse Rostering Problem
+The nurse rostering or nurse scheduling problem entails creating staff schedules called rosters that assign shifts to nurses over a given planning horizon, which is usaully a week or a month while considering various constraints, objectives and goals. These constraints are classified into hard and soft constraints; hard constraints being mandatory rules that must be strictly adhered to as violating them will render a solution not feasible. Examples include: ensuring a required number of nurses for each shift, required skill sets, legal and contractual regulations, and so forth, while soft constraints are preferences that can be bent, they are desirable but not mandatory, violating them just incurs a penalty, examples include: nurses preferred shifts or days off, reducing fatigue by limiting the number of consecutive shifts, ensuring fairness in shift assignments. The main goal when trying to solve this problem is to create a valid roster that adheres to all hard constraints. The nurse rostering problem can be represented using a mathematical model which consists of a set of nurses, shifts and shift types, decision variable, which is a binary variable represented by $x#sub[ijk]$, indicating if nurse #emph[i] is assigned to shift #emph[j] on day #emph[k], with the value of 1 if assigned and 0 if otherwise, the objective function which aims to minimize the overall penalty incurred by violating soft constraints or not meeting desired goals and maximize the nurse's preferences:\
+$min sum_(i,j,k) C#sub[ijk] * x#sub[ijk] + sum$ penalties for soft constraints violations \
+And a bunch of soft and hard constraints that should be met based on the objective function and specific hospital needs. This is just an abstracted explanation of the NRP model, it can be modified and adjusted based on the specific requirements; appropriate constraints and objectives, of the nurse rostering problem being solved.
+
+\
+The Nurse Rostering Problem is usually solved by heuristics and Metaheuristics like Simulated Annealing, Tabu Search, Ant Colony Optimization, and others, mainly because they can generate good solutions in reasonable time. The process of solving this problem with heuristics is broken down into steps which begins with all the data concerning the specific NRP to be solved being gathered and prepared first. Then an iterative process which entails an initial roster being generated randomly or based on a simple rule, which is then evaluated based on the defined objective function (might involve calculating the total penalty incurred by violating soft constraints or not meeting desired goals), this roster is then looked over to identify areas for improvement, like a violation of a high-priority preference or a very desirable constraint, then, depending on the chosen heuristic, there is an attempt to improve the roster. This might involve swapping shifts between nurses, re-assigning a nurse to a different shift type, or modifying the schedule to respect a high-weight preference. This step continues until a stopping criterion is met, which can either be the algorithm reaching a pre-set maximum number of iterations or the algorithm finding an acceptable solution. A post-processing technique can be applied to the final roster if necessary, to fine-tune and  ensure optimality of the solution. Then the roster is evaluated based on the objective function and constraints. 
+
+\
+
+== The HYFLEX framework
+The Hyflex framework (Hyper heuristics Flexible Framework) is a versatile software framework designed to facilitate the development and testing of hyper-heuristics across various problem domains. It isn't focused on solving specific problems itself, but rather provides a powerful platform for developing algorithms that tackle a wide range of combinatorial optimization problems. These are problems where you need to find the best possible arrangement from a finite set of options. This framework has six (6) problem domains which are:
++ Maximum Satisfiability(SAT): This is also called Boolean Satisfiability, and it is a fundamental problem in computer science and mathematical logic that involves determining whether there exists an assignment of truth values (true or false) to variables in a Boolean formula such that the entire formula evaluates to true. If there does, the formula is called satisfiable, on the other hand, if no such assignment exists, the function expressed by the formula is FALSE for all possible variable assignments and the formula is unsatisfiable. The goal is to determine if there's a way to make a complex formula true through clever assignment of truth values. This problem is NP-complete.
+
++ One-dimensional bin packing: This is a classic combinatorial optimization problem that has applications in real-world scenarios like resource allocation and logistics. It involves packing a set of items with varying sizes into a finite number of bins, each with a fixed capacity, in such a way that the number of bins used is minimized. Computationally, the problem is NP-hard.
+
++ Permutation Flow Shop Scheduling (PFSS): This is a production problem for finding the best sequence of jobs to be processed by machines in order to minimize the given objective function. It deals with efficiently scheduling jobs in a production environment with a specific flow structure. Here, a set of jobs must be processed in the same order on a series of machines. The objective is typically to minimize the total completion time (makespan), although other objectives like minimizing total tardiness or maximizing throughput can also be considered. This is also an NP-hard problem.
+
++ Travelling Salesman Problem: This is a classic combinatorial optimization problem that seeks the shortest possible route for a salesman to visit a set of #emph[n] cities exactly once and return to the original city, given a set of citiesor locations and the distances between each pair of them. The goal is to find the shortest possible route that visits each city exactly once and returns to the starting city.
+
++ Vehicle Routing: This is a combinatorial optimization and integer programming problem that seeks the optimal set of routes for a fleet of vehicles to deliver goods to a set of customers. The objective is typically to minimize the total delivery cost, which may include distance, time, or other metrics, while satisfying various constraints. It asks the question: What is the optimal set of routes for the vehicles to take such that all deliveries are completed, capacity constraints are met and total route cost is minimized. It generalizes the Travelling Salesman Problem and is an NP-hrad problem.
+
++ Personnel Scheduling: 
+
+
+
+
+
+
+
+
+
+
+
+
+#pagebreak()
+
 *REFERENCES*
 
 Duka, E. (2015). NURSE SCHEDULING PROBLEM. European Scientific Journal, 2, 1857–7881. Retrieved from https://eujournal.org/index.php/esj/article/download/6481/6221.
@@ -568,3 +647,6 @@ Amindoust, A., Asadpour, M., & Shirmohammadi, S. (2021). A Hybrid Genetic Algori
 Hakim, L., Bakhtiar, T., & Jaharuddin. (2017). The nurse scheduling problem: a goal programming and nonlinear optimization approaches. IOP Conference Series Materials Science and Engineering, 166, 012024. https://doi.org/10.1088/1757899X/166/1/012024
 
 Nasiri, M. M., & Rahvar, M. (2017). A two-step multi-objective mathematical model for nurse scheduling problem considering nurse preferences and consecutive shifts. International Journal of Services and Operations Management, 27(1), 83. https://doi.org/10.1504/ijsom.2017.083338
+
+(4) (PDF) HyFlex: A Benchmark Framework for Cross-Domain Heuristic Search. Available from: https://www.researchgate.net/publication/258836405_HyFlex_A_Benchmark_Framework_for_Cross-Domain_Heuristic_Search [accessed May 24 2024].  
+
