@@ -534,7 +534,14 @@ The Hyflex framework (Hyper heuristics Flexible Framework) is a versatile softwa
 
 + Personnel Scheduling: 
 
-
+#code-figure(
+  "figure yadah ydah",
+  ```rust
+  fn main() {
+    hellow wo
+  }
+  ```
+)
 
 
 
