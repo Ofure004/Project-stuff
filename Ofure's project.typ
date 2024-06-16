@@ -276,6 +276,7 @@ The first ACO algorithm to be proposed was AS(Ant System) by Dorigo(1996), and s
 )
 
 
+
 \
 
 === Ant Colony System
@@ -532,16 +533,183 @@ The Hyflex framework (Hyper heuristics Flexible Framework) is a versatile softwa
 
 + Vehicle Routing: This is a combinatorial optimization and integer programming problem that seeks the optimal set of routes for a fleet of vehicles to deliver goods to a set of customers. The objective is typically to minimize the total delivery cost, which may include distance, time, or other metrics, while satisfying various constraints. It asks the question: What is the optimal set of routes for the vehicles to take such that all deliveries are completed, capacity constraints are met and total route cost is minimized. It generalizes the Travelling Salesman Problem and is an NP-hrad problem.
 
-+ Personnel Scheduling: 
++ Personnel Scheduling: This is a type of combinatorial optimization problem where the goal is to allocate shifts or work hours to a set of employees while satisfying various constraints and optimizing one or more objectives. Essentially, it involves determining the specific times and shifts that each employee should work over a given planning period.\
+The Personnel Scheduling problem is in actuality, not a problem on its own, but a title for a group of very similar problems. There is a group of problems with very similar structure but different objectives and constraints; these are personnel scheduling problems. This fact makes it challenging to implement a problem domain for personnel scheduling. The framework overcame this challenge by creating a data file format where each instance can select a combination of objectives and constraints from a wide choice, then a software framework containing all the functions for these objectives and constraints was implemented. The framework also contains methods for parsing these data files, data structures and libraries for visualisations of instances and solutions. The objectives for the Nurse Rostering Problem domain provided by this framework can be categirized into two groups: \
+- Coverage Objectives which aim to make sure that the preferred number of employees, preferrably with skills, are working each shift.\
+- Employee working objectives which relates to the individual work patterns for each employee. They aim to maximize the employees' satisfaction with their work schedules.\
+
+In the Hyflex Framework, it is necessary to implement a method to initialize a new solution, and these are most usually low-level heursitics. There are four categories of heuristics; Mutation, Local Search, Ruin and Recreate and Crossover. Hyflex currently provides 1 mutation heuristic (Mutation Heuristic 1), three crossover heursitics (Crossover Heuristics 1-3), three ruin and recreate heuristics (Ruin and Recreate Heuristics 1-3) and 5 Local Search Heuristics, which are divided into two, Local Search Heuristics 1-3 are the hill-climbers(or hill-descenders, since we are dealing with minimization), that use of neighbourhood operators, and Local Search Heuristics 4 and 5 which are variants of the variable depth search. The solution for all the problems in the personnel scheduling domain is initialized using Local Search Heuristic 3, which is a hill climber that uses the #emph[new] neighbourhood operator that introduces new shifts into or deletes from the initial roster.
+
+\
+
 
 #code-figure(
-  "figure yadah ydah",
-  ```rust
-  fn main() {
-    hellow wo
-  }
+  "Pseudo-code for Local Heursitic 3",
+  ```
+  1.  WHILE there are untried swaps
+  2.    FOR BlockLength=1 up to MaxBlockLength
+  3.      FOR each employee (E1) in the roster
+  4.        FOR each day (D1) in the planning period
+  5.          FOR each shift type (S1) (including day off)
+  6.            Remove all assignments for E1 on D1 up to D1+BlockLength 
+                and assign shifts of type S1 to E1 on D1 up to
+                D1+BlockLength
+  7.            IF an improvement in roster penalty THEN
+  8.              Break from this loop and move on to the next day (D1+1)
+  9.            ELSE
+  10.             Reverse the swap
+  11.           ENDIF
+  12.          ENDFOR
+  13.         ENDFOR
+  14.       ENDFOR
+  16.     ENDFOR
+  17.   ENDWHILE
+
   ```
 )
+#pagebreak()
+
+
+
+
+// #table(
+//   columns: 6 ,
+//   inset: 10pt,
+//   align: horizon,
+//   table.header(
+//     [#emph[Domain]], [#emph[Total]], [#emph[Mut]], [#emph[R&R]], [#emph[Crossover]], [#emph[LS]]
+//   ),
+//   [Maximum Satisfiability],
+//   [9],
+//   [4],
+//   [1],
+//   [1],
+//   [2],
+//   [Bin Packing],
+//   [8],
+//   [3],
+//   [2],
+//   [1],
+//   [2],
+//   [Permutated Flow Shop],
+//   [15],
+//   [5],
+//   [2],
+//   [3],
+//   [4],
+//   [Personnel Scheduling],
+//   [12],
+//   [1],
+//   [3],
+//   [3],
+//   [5],
+//   [Travelling Salesman],
+//   [15],
+//   [5],
+//   [1],
+//   [3],
+//   [6],
+//   [Vehicle Routing],
+//   [12],
+//   [4],
+//   [2],
+//   [2],
+//   [4],
+// )
+
+#table-figure(
+  "The Total Heuristics Provided by Hyflex for each Heuristic Type ",
+  [#table(
+  columns: 6 ,
+  inset: 10pt,
+  align: horizon,
+  table.header(
+    [#emph[Domain]], [#emph[Total]], [#emph[Mut]], [#emph[R&R]], [#emph[Crossover]], [#emph[LS]]
+  ),
+  [Maximum Satisfiability],
+  [9],
+  [4],
+  [1],
+  [1],
+  [2],
+  [Bin Packing],
+  [8],
+  [3],
+  [2],
+  [1],
+  [2],
+  [Permutated Flow Shop],
+  [15],
+  [5],
+  [2],
+  [3],
+  [4],
+  [Personnel Scheduling],
+  [12],
+  [1],
+  [3],
+  [3],
+  [5],
+  [Travelling Salesman],
+  [15],
+  [5],
+  [1],
+  [3],
+  [6],
+  [Vehicle Routing],
+  [12],
+  [4],
+  [2],
+  [2],
+  [4],
+)]
+)
+
+
+\
+
+== The Ant System
+This is a type of algorithm that is a part of a broader class of algorithms known as Ant Colony Optimization (ACO). The main idea is to use artificial ants to simulate the way real ants find the shortest paths between their nest and food sources by laying down pheromones, which guide other ants towards the discovered path. Originally proposed by Dorigo in 1996, it was first applied to the Travelling Salesman Problem and is the progenitor of all further research work on Ant Colony algorithms.
+
+\
+It is a set of algorithms inspired by the foraging behaviour of ants specifically designed for solving combinatorial optimization problems. Real ants find the shortest path to a food source by something called 'Pheromone Trails', this concept is one of the core mechanisms of the Ant System. Ants lay pheromones on the paths they traverse, and the amount of pheromone deposited depends on the quality of the solution, like, shorter paths have much thicker pheromones because more ants would have traversed it. Over time, pheromone trails evaporate, preventing the system from converging too quickly to a suboptimal solution and encouraging exploration. The ants are endowed with a working memory $M_i^k$, that stores nodes or vertices already visited; at initialization, $M_i^k$ is an empty set, for every ant i($1<= i <= k$),where k is the total number of vertices, then as ant $i$ visits vertex $v$, it is added to memory $M_i^k$. In the original work by Dorigo,Maniezzo,& Colorni(1996), a tabu list was used as a memory to store the already visited cities. The ants begin at a particular node or location and the choice of the next node to visit is based on a probability that is a function of the intensity of the phermone on the trail($tau_(i j)$) between the start node and the destination node and a heuristic value ($eta_(i j)$) which is often based on an inverse of the distance between the two nodes. The formula is usually given as: 
+
+$P_(i j)^k (t) = ([tau_(i j)(t)]^alpha . [eta_(i j)]^beta) / (sum_(k in N_k (i)) [tau_(i k)(t)]^alpha . [eta_(i k)]^beta) $
+
+where $N_k (i)$ is the set of nodes that ant #emph[k] has not yet visited, $alpha$ and $beta$ are parameters that control the relative importance of trail versus visibility, so the transition probability $P_(i j)^k (t)$ is a trade-off between visibility, which says that closer nodes should have more preference thereby implementing a greedy constructive heuristic and trail intensity, which says that the edge between nodes that has had more traffic is more desirable, thereby implementing the autocatalytic process. After every #emph[n] iterations of the algorithm (which is also called a cycle), the pheromone trail intensity is updated using this formula:\
+$tau_(i j)(t+n) = (1-rho)tau_(i j)(t) + sum_(k = 1)^m Delta tau_(i j) ^ k $
+
+where:\
+$(1-rho)$ represents the evaporation of trail between time t and t+n,\
+$Delta tau_(i j) ^ k$ is the quantity per unit length of pheromones laid on the edge(i,j) by the k-th ant between time t and t+n and is given by:\
+$Delta tau_(i j) ^ k = Q/L_k$; if the k-th ant uses edge (i,j) in its tour (between time t and t + n)\
+where Q is a constant and $L_k$ is the tour length of the k-th ant.\
+This is called the Global Pheromone Update, where a greater amount of pheromones are allocated to shorter tours. The coefficient $rho$ must be a value less than 1 to avoid saturation of trail and encourage exploration (if the $rho$ value is < 1, pheromone values decay gradually overtime, thus reducing the influence of previously deposited pheromones, which allows ants explore new paths instead of only following the most reinforced ones, to avoid premature convergence to suboptimal solutions). 
+
+#figure(
+  image("template/images/pseudocode.jpeg", width: 80%),
+  caption: [
+    Pseudocode of the ant cycle algorithm in the Ant System for TSP.// cite this, do not forget
+  ]
+)
+
+
+\
+== The Ant Colony System
+This is another variation of the Ant Colony Optimization algorithm. It, like its parent algorithm is inspired by the foraging behaviour of ants. The Ant Colony System algorithm is built upon the Ant system, with only a few changes to improve its effectiveness. It was noted by Dorigo &Gambardella(1997) that for larger problems, the time given to the Ant System made infeasible to find good or optimal solutions. It was also discovered that even when given more time, the algorithm still suffered from slow convergence and had the tendency to get stuck in local optima instead of converging to the global optimum. So, the Ant Colony System was developed to accelerate convergence, while still searching the solution space effectively, and also to balance exploration and exploitation inorder to avoid suboptiomal solutions. The Ant Colony System differs from the Ant System in these ways:
++ While the Ant System uses a purely probabilistic approach for selection of the next path to be taken by the ant, this algorithm has a state transition rule that ensures there is a way to balance between exploration of new paths and exploitation of already reinforced paths to help avoid convergence of solution to local optima. 
++ The Global Pheromone Update rule, which is only applied to the edges that belong to the tour of the best ant, which is the ant that constructed the best solution. In Ant System, however, all the ants contribute to the global pheromone update. 
++ The Local Pheromone Update rule, which happens while ants construct a solution, and every ant has completed a tour. This is done only in Ant Colony System, and not in Ant System, to encourage exploration.
++ The Ant System applies evaporation of pheromones uniformly after each iteration, while the Ant Colony System uses a slower pheromone evaporation rate and combines global updates with evaporation to focus on the best solutions.
+The 
+
+
+
+
+ 
+
+
+
 
 
 
